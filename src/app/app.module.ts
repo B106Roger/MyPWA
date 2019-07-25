@@ -7,11 +7,14 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { TodoComponent } from './component/todo/todo.component';
+import { LoadComponent } from './component/load/load.component';
+import { DynamicScriptLoaderService } from './service/dynamic-script-loader.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodoComponent
+    TodoComponent,
+    LoadComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,7 @@ import { TodoComponent } from './component/todo/todo.component';
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [],
+  providers: [DynamicScriptLoaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
