@@ -11,14 +11,17 @@
       <ul class="todo-list">
         <!-- These are here just to show the structure of the list items -->
         <!-- List items should get the class `editing` when editing and `completed` when marked as completed -->
-        <ng-container *ngFor="let item of todoList;let index = index;">
-          <li [ngClass]="{'completed': todoList[index].complete == true}">
+        <ng-container *ngFor="let item of showList();let index = index;">
+          <li [ngClass]="{
+          'completed': item.complete == true,
+          'editing': index === editingIndex
+        }" (dblclick)="startEditMsg(index)">
             <div class="view">
-              <input [id]="index" (change)="toggleItem(index)" class="toggle" type="checkbox" [checked]="todoList[index].complete == true">
-              <label [for]="index">{{item.message}}</label>
-              <button (click)="destroyItem(index)" class="destroy"></button>
+              <input  (change)="toggleItem(item.id)" class="toggle" type="checkbox" [checked]="showList()[index].complete == true">
+              <label>{{item.message}}</label>
+              <button (click)="destroyItem(item.id)" class="destroy"></button>
             </div>
-            <input class="edit" value="Rule the web">
+            <input class="edit" [(ngModel)]="item.message" *ngIf="index === editingIndex" (blur)="finishEditMsg()">
           </li>
         </ng-container>
       </ul>
@@ -26,21 +29,21 @@
     <!-- This footer should hidden by default and shown when there are todos -->
     <footer class="footer">
       <!-- This should be `0 items left` by default -->
-      <span class="todo-count"><strong>0</strong> item left</span>
+      <span class="todo-count"><strong>{{numberOfComplete()}}</strong> item left</span>
       <!-- Remove this if you don't implement routing -->
       <ul class="filters">
         <li>
-          <a class="selected">All</a>
+          <a [ngClass]="{'selected': showType === 0}" (click)="showType = 0">All</a>
         </li>
         <li>
-          <a>Active</a>
+          <a [ngClass]="{'selected': showType === 1}" (click)="showType = 1">Active</a>
         </li>
         <li>
-          <a>Completed</a>
+          <a [ngClass]="{'selected': showType === 2}" (click)="showType = 2">Completed</a>
         </li>
       </ul>
       <!-- Hidden if no completed items are left ↓ -->
-      <button class="clear-completed">Clear completed</button>
+      <button class="clear-completed" (click)="destroyAll()">Clear completed</button>
     </footer>
   </section>
   <footer class="info">
