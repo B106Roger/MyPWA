@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { DynamicScriptLoaderService } from 'src/app/service/dynamic-script-loader.service';
 
 @Component({
@@ -6,13 +6,16 @@ import { DynamicScriptLoaderService } from 'src/app/service/dynamic-script-loade
   templateUrl: './load.component.html',
   styleUrls: ['./load.component.scss']
 })
-export class LoadComponent implements OnInit {
+export class LoadComponent implements OnInit, AfterViewInit {
   GAME_URL = "https://gamelab.gd888.cc/";
   GAME_NAME = "gamelab-fortunes88";
   BEARER = "test006";
   constructor(private dynamicScriptLoader: DynamicScriptLoaderService) { }
 
   ngOnInit() {
+
+  }
+  ngAfterViewInit() {
     this.loadScripts();
   }
   private loadScripts() {
