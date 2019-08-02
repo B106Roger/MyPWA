@@ -1,4 +1,16 @@
-<div id="game">
-  <img id="bg">
-  <div id="scroll"></div>
+<div class="column">
+  <div class="box column">
+    <div class="s-box">{{msg1}}</div>
+    <div class="s-box">{{msg2}}</div>
+  </div>
+  <div class="column">
+    <div class="row">
+      <button (click)="innerHeight()">window Inner Height</button>
+      <button (click)="innerWidth()">window Inner Width</button>
+    </div>
+    <div class="row">
+      <button (click)="outerHeight()">window Outer Height</button>
+      <button (click)="outerWidth()">window Outer Width</button>
+    </div>
+  </div>
 </div>

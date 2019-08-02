@@ -1,5 +1,12 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { DynamicScriptLoaderService } from 'src/app/service/dynamic-script-loader.service';
+import { DomSanitizer } from '@angular/platform-browser';
+
+var PARENT_SHORT_NAME = "beanstalk";
+var PARENT_GAME_URL   = "https://dev-slot-mario.gd888.cc/gamelab/";
+var PARENT_GAME_NAME  = "gamelab-";
+var PARENT_USER       = "test005";
+
 
 @Component({
   selector: 'app-load',
@@ -7,23 +14,24 @@ import { DynamicScriptLoaderService } from 'src/app/service/dynamic-script-loade
   styleUrls: ['./load.component.scss']
 })
 export class LoadComponent implements OnInit, AfterViewInit {
-  GAME_URL = "https://gamelab.gd888.cc/";
-  GAME_NAME = "gamelab-fortunes88";
-  BEARER = "test006";
-  constructor(private dynamicScriptLoader: DynamicScriptLoaderService) { }
-
+  msg1 = '';
+  msg2 = '';
   ngOnInit() {
-
   }
   ngAfterViewInit() {
-    this.loadScripts();
   }
-  private loadScripts() {
-    // You can load multiple scripts by just providing the key as argument into load method of the service
-    this.dynamicScriptLoader.load('js1', 'library', 'engine', 'content').then(data => {
-      console.log('successfully load library');
-    }).catch(error => console.log(error));
 
-
+  innerHeight() {
+    this.msg2 = `window.innerHeight: ${window.innerHeight} px`;
   }
+  innerWidth() {
+    this.msg1 = `window.innerWidth: ${window.innerWidth} px`;
+  }
+  outerHeight() {
+    this.msg2 = `window.outerHeight: ${window.outerHeight} px`;
+  }
+  outerWidth() {
+    this.msg1 = `window.outerWidth: ${window.outerWidth} px`;
+  }
+
 }

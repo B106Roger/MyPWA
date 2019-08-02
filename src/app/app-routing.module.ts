@@ -6,11 +6,11 @@ import { LoadComponent } from './component/load/load.component';
 
 const routes: Routes = [
   {
-    path: 'todo',
+    path: '',
     component: TodoComponent
   },
   {
-    path: '',
+    path: 'load',
     component: LoadComponent
   }
 ];
