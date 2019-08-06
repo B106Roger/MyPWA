@@ -14,6 +14,7 @@ var PARENT_USER       = "test005";
   styleUrls: ['./load.component.scss']
 })
 export class LoadComponent implements OnInit, AfterViewInit {
+  count = 0;
   msg1 = '';
   msg2 = '';
   msg3 = '';
@@ -36,7 +37,7 @@ export class LoadComponent implements OnInit, AfterViewInit {
   }
   updateWithAlert() {
     this.update();
-    window.alert('update');
+    this.count++;
   }
   innerHeight() {
     this.msg2 = `window.innerHeight: ${window.innerHeight} px`;
