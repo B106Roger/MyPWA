@@ -2,10 +2,10 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angula
 import { DynamicScriptLoaderService } from 'src/app/service/dynamic-script-loader.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
-var PARENT_SHORT_NAME = "beanstalk";
-var PARENT_GAME_URL   = "https://dev-slot-mario.gd888.cc/gamelab/";
-var PARENT_GAME_NAME  = "gamelab-";
-var PARENT_USER       = "test005";
+const PARENT_SHORT_NAME = 'beanstalk';
+const PARENT_GAME_URL   = 'https://dev-slot-mario.gd888.cc/gamelab/';
+const PARENT_GAME_NAME  = 'gamelab-';
+const PARENT_USER       = 'test005';
 
 
 @Component({
@@ -21,11 +21,17 @@ export class LoadComponent implements OnInit, AfterViewInit {
   msg4 = '';
   msg5 = '';
   msg6 = '';
+  msg7 = '';
+  msg8 = '';
+  msg9 = '';
+
   ngOnInit() {
     this.update();
+    setTimeout(() => {
+      this.update();
+    }, 300);
   }
   ngAfterViewInit() {
-    this.update();
   }
   update() {
     this.msg1 = `window.innerHeight: ${window.innerHeight} px`;
@@ -34,28 +40,22 @@ export class LoadComponent implements OnInit, AfterViewInit {
     this.msg4 = `window.outerWidth: ${window.outerWidth} px`;
     this.msg5 = `screen.height: ${screen.height} px`;
     this.msg6 = `screen.width: ${screen.width} px`;
+    this.msg7 = `document.documentElement.clientHeight: ${document.documentElement.clientHeight} px`;
+    this.msg8 = `document.documentElement.clientWidth: ${document.documentElement.clientWidth} px`;
+    this.meidaQuery();
   }
   updateWithAlert() {
     this.update();
     this.count++;
   }
-  innerHeight() {
-    this.msg2 = `window.innerHeight: ${window.innerHeight} px`;
-  }
-  innerWidth() {
-    this.msg1 = `window.innerWidth: ${window.innerWidth} px`;
-  }
-  outerHeight() {
-    this.msg2 = `window.outerHeight: ${window.outerHeight} px`;
-  }
-  outerWidth() {
-    this.msg1 = `window.outerWidth: ${window.outerWidth} px`;
-  }
-  screenHeight() {
-    this.msg2 = `screen.height: ${screen.height} px`;
-  }
-  screenWidth() {
-    this.msg1 = `screen.width: ${screen.width} px`;
+  meidaQuery() {
+    if (window.matchMedia(`screen and (height:${window.innerHeight}px)`)) {
+      this.msg9 = 'media query is for window.innerHeight';
+    } else if (window.matchMedia(`screen and (height:${screen.height}px)`)) {
+      this.msg9 = 'media query is for screen.height';
+    } else if (window.matchMedia(`screen and (height:${document.documentElement.clientHeight}px)`)) {
+      this.msg9 = 'media query is for document.documentElement.clientHeight';
+    }
   }
 
 }
