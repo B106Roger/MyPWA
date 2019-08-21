@@ -9,12 +9,14 @@ import { environment } from '../environments/environment';
 import { TodoComponent } from './component/todo/todo.component';
 import { LoadComponent } from './component/load/load.component';
 import { DynamicScriptLoaderService } from './service/dynamic-script-loader.service';
+import { EventComponent } from './component/event/event.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodoComponent,
-    LoadComponent
+    LoadComponent,
+    EventComponent
   ],
   imports: [
     BrowserModule,

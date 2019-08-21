@@ -1,0 +1,33 @@
+<div class="column">
+  <div class="box column">
+    <div class="s-box">MouseDown: {{msg1}}</div>
+    <div class="s-box">MouseUp: {{msg2}}</div>
+    <div class="s-box">TouchStart: {{msg3}}</div>
+    <div class="s-box">TouchEnd: {{msg4}}</div>
+    <div class="s-box">PointerDown: {{msg5}}</div>
+    <div class="s-box">PointerUP: {{msg6}}</div>
+    <div class="s-box">Click: {{msg10}}</div>
+    <div class="s-box">Focus: {{msg7}}</div>
+    <div class="s-box">Blur: {{msg8}}</div>
+    <div class="s-box">FocusOut:{{msg9}}</div>
+
+  <div class="column">
+    <div class="row">
+      <button
+      (mousedown)="this.msg1 = seqPlus()"
+      (mouseup)="this.msg2 = seqPlus()"
+      (touchstart)="this.msg3 = seqPlus()"
+      (touchend)="this.msg4 = seqPlus()"
+      (pointerdown)="this.msg5 = seqPlus()"
+      (pointerup)="this.msg6 = seqPlus()"
+      (click)="this.msg10 = seqPlus()"
+      (focus)="this.msg7 = 'focus'"
+      (blur)="this.msg8 = 'blur'"
+      (focusout)="this.msg9 = 'focusout'"
+      >UPDATE</button>
+    </div>
+    <div class="row">
+      <button (mousedown)="cleanAll()">UPDATE</button>
+    </div>
+  </div>
+</div>
