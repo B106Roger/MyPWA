@@ -21,9 +21,9 @@
       (pointerdown)="this.msg5 = seqPlus()"
       (pointerup)="this.msg6 = seqPlus()"
       (click)="this.msg10 = seqPlus()"
-      (focus)="this.msg7 = 'focus'"
-      (blur)="this.msg8 = 'blur'"
-      (focusout)="this.msg9 = 'focusout'"
+      (focus)="this.msg7 = 'focus' + seqPlus()"
+      (blur)="this.msg8 = 'blur' + seqPlus()"
+      (focusout)="this.msg9 = 'focusout' + seqPlus()"
       >Update</button>
       <button (mousedown)="cleanAll()">Clean</button>
     </div>
