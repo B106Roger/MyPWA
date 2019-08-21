@@ -12,7 +12,7 @@
     <div class="s-box">FocusOut:{{msg9}}</div>
 
   <div class="column">
-    <div class="row">
+    <div class="row" style="justify-content: space-around">
       <button
       (mousedown)="this.msg1 = seqPlus()"
       (mouseup)="this.msg2 = seqPlus()"
@@ -24,10 +24,8 @@
       (focus)="this.msg7 = 'focus'"
       (blur)="this.msg8 = 'blur'"
       (focusout)="this.msg9 = 'focusout'"
-      >UPDATE</button>
-    </div>
-    <div class="row">
-      <button (mousedown)="cleanAll()">UPDATE</button>
+      >Update</button>
+      <button (mousedown)="cleanAll()">Clean</button>
     </div>
   </div>
 </div>
