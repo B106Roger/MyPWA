@@ -40,8 +40,8 @@ export class LoadComponent implements OnInit, AfterViewInit {
     this.msg4 = `window.outerWidth: ${window.outerWidth} px`;
     this.msg5 = `screen.height: ${screen.height} px`;
     this.msg6 = `screen.width: ${screen.width} px`;
-    this.msg7 = `document.documentElement.clientHeight: ${document.documentElement.clientHeight} px`;
-    this.msg8 = `document.documentElement.clientWidth: ${document.documentElement.clientWidth} px`;
+    this.msg7 = `clientHeight: ${document.documentElement.clientHeight} px`;
+    this.msg8 = `clientWidth: ${document.documentElement.clientWidth} px`;
     this.meidaQuery();
   }
   updateWithAlert() {

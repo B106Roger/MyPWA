@@ -4,6 +4,7 @@ html,body {
   height: 100vh;
   margin: 0px;
   padding: 0px;
+  overflow: hidden;
 }
 .row {
   display: flex;
@@ -23,7 +24,7 @@ html,body {
 
 
 .box {
-  height: 100vh;
+  height: 50vh;
   width: 100vw;
 }
 .s-box {
